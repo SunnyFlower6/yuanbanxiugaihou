@@ -67,6 +67,18 @@
           <span v-if="rowData.filepath == 'N' && rowData.filepath != '' " > 【数据导出已执行】</span>
           <span v-if="rowData.filepath != 'N' && rowData.filepath != '' " > 【数据导出未执行】</span>
         </div>
+        <div v-if="rowData.filetype == 'xml'  && rowData.ajfilepath != null && rowData.ajfilepath != 'NO'">
+          点击此处下载→
+          <a @click.stop="ajexportData" v-if="rowData.filepath != '' ">案卷数据导出</a>
+          <span v-if="rowData.ajfilepath == 'N' && rowData.ajfilepath != '' " > 【数据导出已执行】</span>
+          <span v-if="rowData.ajfilepath != 'N' && rowData.ajfilepath != '' " > 【数据导出未执行】</span>
+        </div>
+        <div v-if="rowData.filetype == 'xml'  && rowData.filepath != null && rowData.filepath != 'NO'">
+          点击此处下载→
+          <a @click.stop="exportData" v-if="rowData.filepath != '' ">卷内数据导出</a>
+          <span v-if="rowData.filepath == 'N' && rowData.filepath != '' " > 【数据导出已执行】</span>
+          <span v-if="rowData.filepath != 'N' && rowData.filepath != '' " > 【数据导出未执行】</span>
+        </div>
       </Cell>
       <Cell v-if="rowData.path != null">
         <a @click.stop="transferClick">跳转</a>
